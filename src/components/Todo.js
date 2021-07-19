@@ -9,11 +9,26 @@ const Todo = ({text, todos, setTodos, todo}) => {
         )
     )
   }
+  const completeHandler = () =>{
+      setTodos(
+          todos.map(
+              (item)=>{
+                  if( item.id === todo.id){
+                      return{
+                        ...item, completed: !item.completed, 
+                      }
+                          
+                  }
+                  return item; 
+              }
+          )
+      )
+  }
 
   return (
     <div className="todo">
       <li className="todo-item">{text}</li>
-      <button className="complete-btn">
+      <button onClick={completeHandler} className="complete-btn">
         <i className="fas fa-check"></i>
       </button>
       <button onClick={deleteHandler} className="complete-btn">
