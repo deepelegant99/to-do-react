@@ -1,9 +1,13 @@
 import React from "react";
 
-const Todo = ({text}) => {
+const Todo = ({text, todos, setTodos, todo}) => {
 
   const deleteHandler = () =>{
-    console.log("I am deleted")
+    setTodos(
+        todos.filter(
+            e1=>{ return (e1.id !== todo.id)}
+        )
+    )
   }
 
   return (
